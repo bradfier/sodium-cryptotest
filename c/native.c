@@ -45,19 +45,6 @@ int main()
     /* Do encryption */
     crypto_secretbox_easy(ciphertext, plaintext, len, nonce, key);
 
-    /* Write out to test_data.enc */
-    FILE *enc_fp = fopen("test_data.enc", "w");
-    if (enc_fp != NULL) {
-        size_t written = fwrite(ciphertext, sizeof(char), len + crypto_secretbox_MACBYTES, enc_fp);
-        if (ferror(enc_fp) != 0) {
-            fputs("Error writing file", stderr);
-            return 1;
-        } else {
-            printf("Wrote %d bytes\n", written);
-        }
-        fclose(enc_fp);
-    }
-
     /* Decryption of the existing buffer */
     unsigned char *decrypted = malloc(len);
     if (crypto_secretbox_open_easy(decrypted, ciphertext, len + crypto_secretbox_MACBYTES, nonce, key)) {

@@ -1,6 +1,6 @@
-naieve: naieve.c
-	gcc -o naieve -std=gnu11 -O2 -lsodium naieve.c
+native: native.c
+	gcc -o native -std=gnu11 -O2 -lsodium native.c
 
 
 clean:
-	rm -f *.o naieve
+	rm -f *.o native

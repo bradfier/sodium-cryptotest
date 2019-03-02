@@ -1,2 +1,3 @@
-test_data*
 c/naieve
+pynacl/venv
+pynacl/__pycache__
