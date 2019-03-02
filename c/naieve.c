@@ -15,7 +15,7 @@ int main()
 
     /* Allocate a buffer and read the data from 'test_data' */
     unsigned char *plaintext = malloc(BUFSIZE);
-    FILE *fp = fopen("test_data", "r");
+    FILE *fp = fopen("../test_data", "r");
 
     size_t len = 0;
 
